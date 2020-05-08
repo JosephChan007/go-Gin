@@ -1,0 +1,21 @@
+{{define "login.html"}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+    <div>{{.message}}</div>
+    <form action="/login" method="post">
+        <input type="text" name="username"/>
+        <input type="password" name="password"/>
+        <br>
+        <input type="submit"/>
+    </form>
+    <IMG src="/static/a.jpg">
+</body>
+</html>
+
+{{end}}
