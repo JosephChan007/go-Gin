@@ -1,0 +1,21 @@
+{{define "book/book.html"}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍管理系统</title>
+</head>
+<body>
+    <div>增加书籍</div>
+    <form action="" method="post">
+        <input type="hidden" name="id" value="{{.id}}"/>
+        书名：<input type="text" name="name" value="{{.name}}"/><br>
+        价格：<input type="text" name="price" value="{{.price}}"/><br>
+        <br>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
+
+{{end}}

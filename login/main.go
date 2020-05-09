@@ -19,7 +19,7 @@ func main() {
 	r.Static("/static", "../img") // 参数1：URL代码中的文件前缀；参数：实际存放文件路径
 
 	r.GET("/login", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "login.html", gin.H{
+		c.HTML(http.StatusOK, "book.html", gin.H{
 			"message": "用户登录",
 		})
 	})
@@ -29,7 +29,7 @@ func main() {
 		err := c.ShouldBind(&login)
 		if err != nil {
 			log.Printf("%v\n", err)
-			c.HTML(http.StatusNotFound, "login.html", gin.H{
+			c.HTML(http.StatusNotFound, "book.html", gin.H{
 				"message": err,
 			})
 			return
