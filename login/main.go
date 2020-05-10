@@ -38,8 +38,8 @@ func main() {
 		c.HTML(http.StatusOK, "login.html", gin.H{
 			"message": fmt.Sprintf("%#v", login),
 		})
+
 	})
 
 	r.Run(":9091")
-
 }
