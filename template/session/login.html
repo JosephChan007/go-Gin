@@ -1,0 +1,20 @@
+{{define "session/login.html"}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+    <div>{{.message}}</div>
+    <form action="/session/login" method="post">
+        <label>用户名：<input type="text" name="username"/></label><br>
+        <label>密码:  <input type="password" name="password"/></label><br>
+        <input type="submit"/>
+    </form>
+    <IMG src="/static/a.jpg">
+</body>
+</html>
+
+{{end}}
