@@ -37,6 +37,7 @@ func main() {
 		}
 		fmt.Printf("[TAILF-INPUT]msg: %s\n", msg.Text)
 
+		// 往kafka推送消息
 		producer.SendMessage(msg.Text)
 	}
 
