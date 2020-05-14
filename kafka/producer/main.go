@@ -1,11 +1,13 @@
-package main
+package producer
 
 import (
 	"fmt"
 	"github.com/Shopify/sarama"
 )
 
-func main() {
+func SendMessage(msg string) {
+	// 消息TOPIC
+	topic := "shopping"
 
 	// kafka配置
 	config := sarama.NewConfig()
@@ -15,12 +17,12 @@ func main() {
 
 	// 封装消息
 	message := &sarama.ProducerMessage{}
-	message.Topic = "shopping"
-	message.Value = sarama.StringEncoder("this is a go testing message...成功了!")
+	message.Topic = topic
+	message.Value = sarama.StringEncoder(msg)
 
 	// 连接kafka
-	var kafkahosts = []string{"hdfs-host1:9092", "hdfs-host2:9092", "hdfs-host3:9092", "hdfs-host4:9092"}
-	producer, err := sarama.NewSyncProducer(kafkahosts, config)
+	var kafkaHosts = []string{"hdfs-host1:9092", "hdfs-host2:9092", "hdfs-host3:9092", "hdfs-host4:9092"}
+	producer, err := sarama.NewSyncProducer(kafkaHosts, config)
 	if err != nil {
 		fmt.Println("producer closed, err:", err)
 		return
@@ -35,5 +37,5 @@ func main() {
 	}
 
 	// 发送结果
-	fmt.Printf("pid:%v offset:%v\n", partition, offset)
+	fmt.Printf("[KAFKA-PRODUCER]pid:%v offset:%v\n", partition, offset)
 }
